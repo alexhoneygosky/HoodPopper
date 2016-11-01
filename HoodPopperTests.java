@@ -63,6 +63,7 @@ public class HoodPopperTests {
         driver.findElement(By.name("commit")).click();
         assertEquals("Hood Popped - Tokenize Operation", driver.findElement(By.cssSelector("h1")).getText());
 
+        //Try and look for proper code in tokenize screen
         try {
             String tokenizeCode = driver.findElement(By.cssSelector("code")).getText();
             assertTrue(tokenizeCode.contains(":on_ident"));    
@@ -82,6 +83,7 @@ public class HoodPopperTests {
         driver.findElement(By.xpath("(//input[@name='commit'])[2]")).click();
         assertEquals("Hood Popped - Parse Operation", driver.findElement(By.cssSelector("h1")).getText());
 
+        //Try and look for proper code in parse screen
         try {
             String parseCode = driver.findElement(By.cssSelector("code")).getText();
             assertTrue(parseCode.contains("puts"));
@@ -102,6 +104,7 @@ public class HoodPopperTests {
         driver.findElement(By.xpath("(//input[@name='commit'])[3]")).click();
         assertEquals("Hood Popped - Compile Operation", driver.findElement(By.cssSelector("h1")).getText());
 
+        //Try and look for proper code in compile screen
         try {
             String compileCode = driver.findElement(By.cssSelector("code")).getText();
             assertTrue(compileCode.contains("opt_plus")); 
@@ -121,6 +124,7 @@ public class HoodPopperTests {
         driver.findElement(By.name("commit")).click();
         assertEquals("Hood Popped - Tokenize Operation", driver.findElement(By.cssSelector("h1")).getText());
 
+        //Try and look for proper code in tokenize screen
         try {
             String tokenizeCode = driver.findElement(By.cssSelector("code")).getText();
             assertTrue(tokenizeCode.contains("on_tstring_content"));
@@ -140,6 +144,7 @@ public class HoodPopperTests {
         driver.findElement(By.xpath("(//input[@name='commit'])[2]")).click();
         assertEquals("Hood Popped - Parse Operation", driver.findElement(By.cssSelector("h1")).getText());
 
+        //Try and look for proper code in parse screen
         try {
             String parseCode = driver.findElement(By.cssSelector("code")).getText();
             assertTrue(parseCode.contains("string_literal"));
@@ -159,6 +164,7 @@ public class HoodPopperTests {
         driver.findElement(By.xpath("(//input[@name='commit'])[3]")).click();
         assertEquals("Hood Popped - Compile Operation", driver.findElement(By.cssSelector("h1")).getText());
 
+        //Try and look for proper code in compile screen
         try {
             String compileCode = driver.findElement(By.cssSelector("code")).getText();
             assertTrue(compileCode.contains("putstring"));
@@ -178,6 +184,7 @@ public class HoodPopperTests {
         driver.findElement(By.name("commit")).click();
         assertEquals("Hood Popped - Tokenize Operation", driver.findElement(By.cssSelector("h1")).getText());
 
+        //Try and look for improper code in tokenize screen
         try {
             String tokenizeCode = driver.findElement(By.cssSelector("code")).getText();
             assertFalse(tokenizeCode.contains("error"));
@@ -195,7 +202,8 @@ public class HoodPopperTests {
         driver.findElement(By.id("code_code")).sendKeys("-------");
         driver.findElement(By.xpath("(//input[@name='commit'])[2]")).click();
         assertEquals("We're sorry, but something went wrong.", driver.findElement(By.cssSelector("h1")).getText());
-        
+
+        //Try and go back after 500 failure on parse screen
         try {
             driver.navigate().back();              
         } catch(Exception e) {
@@ -212,6 +220,7 @@ public class HoodPopperTests {
         driver.findElement(By.xpath("(//input[@name='commit'])[3]")).click();
         assertEquals("Hood Popped - Compile Operation", driver.findElement(By.cssSelector("h1")).getText());
 
+        //Try and look for error message in compile screen
         try {
             String compileCode = driver.findElement(By.cssSelector("code")).getText();
             assertTrue(compileCode.contains("Syntax error"));
@@ -230,6 +239,7 @@ public class HoodPopperTests {
         driver.findElement(By.name("commit")).click();
         assertEquals("Hood Popped - Tokenize Operation", driver.findElement(By.cssSelector("h1")).getText());
 
+        //Try and look for proper code in tokenize screen
         try {
             String tokenizeCode = driver.findElement(By.cssSelector("code")).getText();
             assertTrue(tokenizeCode.contains("on_op"));
@@ -249,6 +259,7 @@ public class HoodPopperTests {
         driver.findElement(By.xpath("(//input[@name='commit'])[2]")).click();
         assertNotEquals("We're sorry, but something went wrong.", driver.findElement(By.cssSelector("h1")).getText());
 
+        //Try and look for proper code in parse screen
         try {
             String parseCode = driver.findElement(By.cssSelector("code")).getText();
             assertTrue(parseCode.contains("unary"));
@@ -267,6 +278,7 @@ public class HoodPopperTests {
         driver.findElement(By.xpath("(//input[@name='commit'])[3]")).click();
         assertEquals("Hood Popped - Compile Operation", driver.findElement(By.cssSelector("h1")).getText());
 
+        //Try and look for proper code in compile screen
         try {
             String compileCode = driver.findElement(By.cssSelector("code")).getText();
             assertTrue(compileCode.contains("opt_send_simple"));
